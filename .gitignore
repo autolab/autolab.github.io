@@ -1,2 +1,7 @@
+.*.sw[nop]
+tags
+
+
+# jekyll
 _site
 .sass-cache
