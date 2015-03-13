@@ -210,3 +210,49 @@ pre {
 .displaynone {
   display: none;
 }
+
+/**
+ * Tables - GitHub-Flavored Markdown style
+ *
+ * Modified from https://gist.github.com/andyferra/2554919
+ */
+table {
+  box-sizing: border-box;
+  border-collapse: collapse;
+  border-spacing: 0;
+  padding: 0;
+  margin: 15px 0;
+
+  tr {
+    border-top: 1px solid #cccccc;
+    margin: 0;
+    padding: 0;
+
+    &:nth-child(2n) {
+      background-color: #f8f8f8;
+    }
+
+    th {
+      border: 1px solid #cccccc;
+      font-weight: bold;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px;
+    }
+
+    td {
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px;
+    }
+
+    th :first-child, td :first-child {
+      margin-top: 0;
+    }
+
+    th :last-child, td :last-child {
+      margin-bottom: 0;
+    }
+  }
+}
