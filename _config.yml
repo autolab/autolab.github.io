@@ -24,3 +24,14 @@ kramdown:
 sass:
   sass_dir: _sass
   style: compressed
+
+# --- Custom metadata ---
+author: Autolab Dev Team
+
+# One of two ways to get links in the header
+# (the other is to create a Jekyll page, like contributors.md)
+links:
+  - url: http://www.autolabproject.com/
+    title: About
+  - url: https://github.com/autolab/Autolab
+    title: GitHub
