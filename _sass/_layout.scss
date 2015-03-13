@@ -167,6 +167,9 @@
  */
 .page-content {
     padding: $spacing-unit 0;
+
+    // sticky footer
+    flex: 1;
 }
 
 .page-heading {
