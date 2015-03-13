@@ -1,5 +1,5 @@
 # Site settings
-title: Autolab Project Blog
+title: Autolab Development Blog
 email: autolab-dev@<span class="displaynone">X</span>andrew.cmu.edu
 description: > # this means to ignore newlines until "baseurl:"
   Read on for release news, feature spotlights, development insights, and

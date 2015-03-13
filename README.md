@@ -1,7 +1,7 @@
 # Autolab Blog
 
-This is the source of the Autolab Project blog. We're using Jekyll and Octopress
-3.
+This is the source of the blog for the Autolab Project. We're using Jekyll and
+Octopress 3.
 
 
 ## Installation
