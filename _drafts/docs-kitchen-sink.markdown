@@ -2,6 +2,7 @@
 layout: post
 title: "[docs] Kitchen Sink"
 author: 'Jake Zimmerman'
+tags: [docs]
 ---
 
 You can use Markdown to create new posts. The format is similar to the Markdown

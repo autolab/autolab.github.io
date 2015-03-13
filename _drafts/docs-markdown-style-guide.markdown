@@ -2,6 +2,7 @@
 layout: post
 title: "[docs] Markdown Style Guide"
 author: Jake Zimmerman
+tags: [docs]
 ---
 
 This is a short style guide for writing Markdown for this blog.

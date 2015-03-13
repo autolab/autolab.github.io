@@ -2,6 +2,7 @@
 layout: post
 title: "[docs] Jekyll and Octopress Tips"
 author: Jake Zimmerman
+tags: [docs, jekyll, octopress]
 ---
 
 We're using Octopress 3.0 on top of Jekyll to help make the day-to-day usage of
