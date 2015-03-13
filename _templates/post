@@ -1,0 +1,7 @@
+---
+layout: {{ layout }}
+title: {{ title }}
+date: {{ date }}
+author: 'CHANGE ME'
+tags: ['feature', 'release', 'rails', 'python']
+---
