@@ -3,4 +3,5 @@ layout: {{ layout }}
 title: {{ title }}
 author: 'CHANGE ME'
 tags: ['feature', 'release', 'rails', 'python']
+comments: true   # toggle this to disable comments
 ---

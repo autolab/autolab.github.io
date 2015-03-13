@@ -4,4 +4,5 @@ title: {{ title }}
 date: {{ date }}
 author: 'CHANGE ME'
 tags: ['feature', 'release', 'rails', 'python']
+comments: true   # toggle this to disable comments
 ---
