@@ -69,8 +69,8 @@ Jekyll understands three types of content: Posts, Pages, and Drafts. A post is
 basically a markdown file in `_posts/` (almost always with the key `layout:
 post` in the front-matter) that's tied to a publishing date. Drafts are similar,
 but they get placed in `_drafts/`. Pages are special. They can be placed
-anywhere, but don't have a publishing date tied to them. An example of a page in
-this repo is the `contributors.md` file.
+anywhere, but don't have a publishing date tied to them. We don't have any
+examples of a Page in this blog.
 
 All posts show up on the landing page of the blog. All pages show up in the
 header on each webpage. Drafts show up in the same place as posts, but only if
