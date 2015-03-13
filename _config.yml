@@ -16,10 +16,18 @@ exclude:
   - Gemfile
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
 
-kramdown:
-  parse_block_html: true
+redcarpet:
+  extensions:
+    - no_intra_emphasis
+    - tables
+    - fenced_code_blocks
+    - autolink
+    - disable_indented_code_blocks
+    - strikethrough
+    - footnotes
+    - with_toc_data
 
 sass:
   sass_dir: _sass
