@@ -238,3 +238,46 @@
         }
     }
 }
+
+/**
+ * Tags
+ */
+.tags {
+  margin-bottom: 20px;
+
+  .tag {
+    border: 1px solid $brand-color;
+    padding: 6px 6px 4px 6px;
+    border-radius: 3px;
+    margin-right: 3px;
+
+    &:visited {
+      color: $brand-color;
+    }
+
+    &:hover {
+      background: $brand-color;
+      text-decoration: none;
+      color: white;
+
+      .tag-power {
+        color: white;
+      }
+    }
+  }
+
+  .tag-power {
+    margin-left: 3px;
+    vertical-align: super;
+    font-size: $base-font-size * 0.625;
+
+    color: $brand-color;
+    font-weight: bold;
+  }
+}
+
+.tags-list {
+  h3 {
+    margin-left: 30px;
+  }
+}

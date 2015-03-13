@@ -1,0 +1,29 @@
+---
+layout: page
+title: Tags
+permalink: /tags/
+---
+
+<div class="home">
+
+  <div class="tags">
+    {% for tag in site.tags %}
+      <a class="tag" href="#{{ tag[0] }}">{{ tag[0] }}<span class="tag-power">{{ tag[1].size }}</span></a>
+    {% endfor %}
+  </div>
+
+  {% for tag in site.tags %}
+    <div class="tags-list" id="{{ tag[0]}}">
+      <h2>{{ tag[0] }}</h2>
+
+      {% assign tagged_pages = tag[1] %}
+      {% for p in tagged_pages %}
+        <h3>
+          <a href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a>
+        </h3>
+      {% endfor %}
+    </div>
+  {% endfor %}
+
+</div>
+
