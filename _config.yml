@@ -39,7 +39,7 @@ sass:
 author: Autolab Dev Team
 
 # One of two ways to get links in the header
-# (the other is to create a Jekyll Page)
+# (the other is to create a Jekyll Page, see tags.html)
 links:
   - url: http://www.autolabproject.com/
     title: About
