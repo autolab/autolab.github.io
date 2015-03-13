@@ -2,7 +2,7 @@
 title: Autolab Project Blog
 email: autolab-dev@andrew.cmu.edu
 description: > # this means to ignore newlines until "baseurl:"
-  Read on for releases news, feature spotlights, development insights, and
+  Read on for release news, feature spotlights, development insights, and
   more!
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://autolab.github.io" # the base hostname & protocol for your site
@@ -23,4 +23,4 @@ kramdown:
 
 sass:
   sass_dir: _sass
-  #style: compressed
+  style: compressed
