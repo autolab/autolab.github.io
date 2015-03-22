@@ -105,12 +105,20 @@ repo][octopress].
 The most common command you'll likely use with Octopress is
 
 ```console
-$ octopress new post "My Cool Title"
+$ octopress new draft "My Cool Title"
 ```
 
 This will create a new markdown file, show you the path of the created file, and
 initialize the contents of that file with everything that we've told it to (see
-`_templates/`).
+`_templates/draft`).
+
+To publish this draft (taking if from a draft to a post), [see
+below](#publishing-drafts). If you'd like to skip making a draft and go straight
+ahead with a post, use
+
+```console
+$ octopress new post "My Cool Title"
+```
 
 You might also like to specify an exact date (as opposed to `Time#now`):
 
@@ -127,7 +135,7 @@ To convert a draft to a post, run
 $ octopress publish _draft/my-draft.markdown
 ```
 
-You can undo this just if you have to:
+You can undo this if you have to:
 
 ```console
 $ octopress unpublish _post/2015-01-01-my-post.markdown
