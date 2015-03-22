@@ -30,6 +30,7 @@ redcarpet:
     - strikethrough
     - footnotes
     - with_toc_data
+    - smart
 
 sass:
   sass_dir: _sass
