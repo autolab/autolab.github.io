@@ -3,6 +3,8 @@ layout: {{ layout }}
 title: {{ title }}
 date: {{ date }}
 author: 'CHANGE ME'
+# Some sample tags; you'll probably want to use different ones.
 tags: ['feature', 'release', 'rails', 'python']
 comments: true   # toggle this to disable comments
+# Be sure to read _drafts/docs-markdown-style-guide/ :D
 ---
