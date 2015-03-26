@@ -44,7 +44,7 @@ frameworks, compilers, databases---the possibilities are endless. No matter the
 subject, Autolab can help make autograding a reality.
 
 Because of this flexibility, students can receive feedback on their assignments
-nearly instantaneously, closing the feedback loop in minutes rather than week.
+nearly instantaneously, closing the feedback loop in minutes rather than weeks.
 This opens the door to iterative learning: students are alerted to incorrect
 solutions immediately, enabling them to hone in on and fix troubling mistakes in
 their code. Over the course of one assignment, this feedback loop can run any
