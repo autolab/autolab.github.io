@@ -39,6 +39,9 @@ sass:
 # --- Custom metadata ---
 author: Autolab Dev Team
 
+# TODO uncomment the next line and add the tracking ID (UA-XXXXX-X)
+#google_analytics_tracking_id:
+
 # One of two ways to get links in the header
 # (the other is to create a Jekyll Page, see tags.html)
 links:
