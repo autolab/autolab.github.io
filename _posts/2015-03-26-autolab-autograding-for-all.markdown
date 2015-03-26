@@ -48,8 +48,8 @@ nearly instantaneously, closing the feedback loop in minutes rather than weeks.
 This opens the door to iterative learning: students are alerted to incorrect
 solutions immediately, enabling them to hone in on and fix troubling mistakes in
 their code. Over the course of one assignment, this feedback loop can run any
-number of times; each time, the student learns something that they would have
-forgotten had the assignment been graded manually.
+number of times; each time, the student learns something above what they would
+have had the assignment been graded manually.
 
 
 # Fostering Community
