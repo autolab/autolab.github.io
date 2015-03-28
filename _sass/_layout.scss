@@ -202,6 +202,7 @@
  */
 .post-header {
     margin-bottom: $spacing-unit;
+    margin-top: 60px;
 }
 
 .post-title {
@@ -227,6 +228,8 @@
 
     h2 {
         font-size: 26px;
+        font-weight: normal;
+        margin-top: 32px;
 
         @include media-query($on-laptop) {
             font-size: 22px;
@@ -235,6 +238,8 @@
 
     h3 {
         font-size: 20px;
+        font-weight: bold;
+        margin-top: 32px;
 
         @include media-query($on-laptop) {
             font-size: 18px;
