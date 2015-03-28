@@ -3,7 +3,7 @@ layout: post
 title: "Making Autolab's Backend Scalable"
 author: Ilter Canberk
 
-tags: [autolab, community, backend, scalability]
+tags: [tango, redis, scalability]
 
 ---
 
