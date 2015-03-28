@@ -4,26 +4,28 @@ title: "Making Autolab's Backend Scalable"
 author: Ilter Canberk
 
 tags: [autolab, community, backend, scalability]
+
 ---
 
 # Making Autolab's Backend Scalable #
 
-Tango is the back-end service that receives grading jobs from Autolab's front-end, puts them in a job queue and assign these jobs to the available containers that are responsible of running the grading scripts. 
+Tango is the back-end service that receives grading jobs from Autolab's front-end, puts them in a job queue, and assigns them to available containers for grading. Tango came across larger work-loads and huge files as Autolab got more popular this semester.
 
 
 ![Tango's initial Architecture]({{site-url}}/assets/redis1.png)
+_Diagram 1: Initial Tango architecture with in-memory job queue_
 
 
-As Autolab gained more adoption, we started to come across larger work-loads and autograders containing huge files. The existing monolithic model was not giving us the necessary flexibility to deal with these cases and was prone to crashes that caused system-wise restarts. Therefore we decided to improve our architecture to not rely on an in memory queue and contain different processes for putting and getting jobs from the queue.
+The existing monolithic model with a single process and an in-memory queue limited the scalability and was prone to crashes that caused the jobs to disappear. Therefore we decided to improve our architecture by switching to multi-process model with a persistent queue.
 
 
 ## Persistent Memory Model using Redis
 
-Job queue being stored in-memory was the biggest block in front of making the system robust. We want to store this data on an independent system and make it *persistent*
+The in-memory job queue was the barrier to making the system robust. We want to store jobs on an independent system and make it *persistent*
 
 ![Tango's initial Architecture]({{site-url}}/assets/redis2.png)
 
-In this persistent memory model, even if Tango  dies and restarts again it will keep the same job queue. We could even spin up multiple instances of Tango and they can all work at the same time, using the same queue (with couple problems which I will mention in the next section).
+In this persistent memory model, even if Tango restarts it will keep the same job queue. We could even spin up multiple instances of Tango and they can all work concurrently, sharing the same queue (with a couple problems which I will mention in the next section).
 
 ### Choice of Redis
 
@@ -65,6 +67,37 @@ def TangoDictionary(object_name):
 
 
 
-### Marshalling
+### Serialization and Marshalling
+
+Redis, being a key-value store, only accepts strings as values. Even though the objects we are trying to store are quite simple and flat, we did not want to create a new key-value pair for every attribute of the class. Instead we decided to serialize what we call the 'remote objects' using the `pickle` module included in the standard python library.
+
+A sample method to put the object into the store would look like
+
+```
+def set(self, id, obj):
+    pickled_obj = pickle.dumps(obj)
+    self.r.hset(self.hash_name, str(id), pickled_obj)
+    return str(id)   
+```
+
+An to get it back you would need:
+
+```	
+def get(self, id):
+    unpickled_obj = self.r.hget(self.hash_name, str(id))
+    obj = pickle.loads(unpickled_obj)
+    return obj
+```
+
+Although pickling seemed like a good solution at first, as we needed to add remote objects into the remote objects, e.g. putting *TangoMachine*s into the remote *TangoQueue*, we ran into the problem of `self.r`(type of *redis.StrictRedis*) not being serializable. To get around this, we needed to define custom __getstate__ and __setstate__ methods that would not include self.r attribute in the serialized string, but set it back when the object is deserialized.
+
+```
+def __setstate__(self, dict):
+    self.__db= getRedisConnection()
+    self.__dict__.update(dict)
+```
+
+Details of the implementation can be found on [TangoObjects module](https://github.com/autolab/Tango/blob/master/tangoObjects.py).
+
 
 ## Producer Consumer Model
