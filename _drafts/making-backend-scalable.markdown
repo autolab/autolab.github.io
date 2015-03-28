@@ -7,8 +7,6 @@ tags: [tango, redis, scalability]
 
 ---
 
-# Making Autolab's Backend Scalable #
-
 Tango is the back-end service that receives grading jobs from Autolab's front-end, puts them in a job queue, and assigns them to available containers for grading. Tango came across larger work-loads and huge files as Autolab got more popular this semester.
 
 
