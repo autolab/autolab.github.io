@@ -7,14 +7,21 @@ tags: [tango, redis, scalability]
 
 ---
 
-Tango is the back-end service that receives grading jobs from Autolab's front-end, puts them in a job queue, and assigns them to available containers for grading. Tango came across larger work-loads and huge files as Autolab got more popular this semester.
+[Tango](https://github.com/autolab/Tango) is a stand-alone, RESTful service that Autolab uses as the back-end for autograding. Tango receives grading jobs from Autolab's front-end, adds them in a job queue, assigns them to available containers for grading and shepherds the job throuout the process. In its early days, Tango was mostly used for jobs that ran in under 5 seconds. However, over the recent semesters, Autolab has grown to host classes like Distributed Systems, Machine Learning. Some of these classes have assessments that are computationally intensive on large datasets and contains bigger files.
 
 
 ![Tango's initial Architecture]({{site-url}}/assets/redis1.png)
 _Diagram 1: Initial Tango architecture with in-memory job queue_
 
 
-The existing monolithic model with a single process and an in-memory queue limited the scalability and was prone to crashes that caused the jobs to disappear. Therefore we decided to improve our architecture by switching to multi-process model with a persistent queue.
+The existing monolithic model with a single process and an in-memory queue was posing multiple problems:
+
+* Running a web server that handled large file uploads concurrently along with a job manager that dispatched jobs from the job queue to new threads made the process prone to crashes.
+* Crashes caused tall the jobs stored in the in-memory queue to disappear. 
+* After a crash, all the containers running a job would suddenly be left in a so-called limbo state because they are no longer managed by any Tango process.
+
+
+Therefore we decided to improve our architecture by switching to multi-process model with a persistent queue.
 
 
 ## Persistent Memory Model using Redis ##
