@@ -7,10 +7,10 @@ tags: [tango, redis, scalability]
 
 ---
 
-[Tango](https://github.com/autolab/Tango) is a stand-alone, RESTful service that Autolab uses as the back-end for autograding. Tango receives grading jobs from Autolab's front-end, adds them in a job queue, assigns them to available containers for grading and shepherds the job throuout the process. In its early days, Tango was mostly used for jobs that ran in under 5 seconds. However, over the recent semesters, Autolab has grown to host classes like Distributed Systems, Machine Learning. Some of these classes have assessments that are computationally intensive on large datasets and contains bigger files. As we looked into how to hand larger loads, we were running into the problem of how to manage queued jobs and distribute them to different instances in our back-end. To this end, we decided to take the initial step for turning Tango into a distributed system by implementing a persistent memory using Redis and using the producer consumer model.
+[Tango](https://github.com/autolab/Tango) is a stand-alone, RESTful service that Autolab uses as the back-end for autograding. Tango receives grading jobs from Autolab's front-end, adds them to a job queue, assigns them to available containers for grading and shepherds the job through the process. In its early days, Tango was mostly used for jobs that ran in under 5 seconds. However, over the recent semesters, Autolab has grown to host classes like Distributed Systems, Machine Learning and Storage Systems--classes with significantly higher compute requirements. As we looked into how to handle larger loads, we were running into the problem of how to manage queued jobs and distribute them to different instances in our back-end. To this end, we decided to take the initial step for turning Tango into a distributed system by implementing a persistent memory using Redis and using the producer consumer model.
 
 
-![Tango's initial Architecture]({{ site-url }}/assets/redis1.png)
+![Tango's initial Architecture]({{ site-url }}/assets/redis1.svg)
 _Initial Tango architecture with in-memory job queue_
 
 
@@ -28,7 +28,7 @@ Therefore we decided to improve our architecture by switching to multi-process m
 
 The in-memory job queue was the barrier to making the system robust. We want to store jobs on an independent system and make it *persistent*.
 
-![Tango with Persistent Memory Model]({{ site-url }}/assets/redis2.png)
+![Tango with Persistent Memory Model]({{ site-url }}/assets/redis2.svg)
 _Tango with Persistent Memory Model_
 
 In this persistent memory model, even if Tango restarts it will keep the same job queue. We could even spin up multiple instances of Tango and they can all work concurrently, sharing the same queue (with a couple problems which I will mention in the next section).
@@ -40,7 +40,7 @@ We started looking into possible solutions: traditional relational databases lik
 
 ### Implementation ###
 
-While making the switch, we wanted to keep the ability to run Tango without a dependency on the external service in order to keep backwards competibility and simplify setting up a local development environment.
+While making the switch, we wanted to keep the ability to run Tango without a dependency on the external service in order to keep backwards compatibility and simplify setting up a local development environment.
 
 In order to achieve this we created (pseudo)abstract classes that include the common methods and decide on what is used under the hood based on the configuration.
 
@@ -114,7 +114,7 @@ Having a shared queue gave us the ability to run multiple *producers* as explain
 
 Therefore, we decided to separate the consumer from the HTTP server (producer) as a standalone process.
 
-![Tango with Prod/Com Model]({{ site-url }}/assets/redis3.png)
+![Tango with Prod/Com Model]({{ site-url }}/assets/redis3.svg)
 
 _Tango with Prod/Com processes and Persistent Memory Model_
 
