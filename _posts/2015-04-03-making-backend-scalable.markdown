@@ -2,9 +2,8 @@
 layout: post
 title: "Making Autolab's Backend Scalable"
 author: Ilter Canberk
-
 tags: [tango, redis, scalability]
-
+comments: true   # toggle this to disable comments
 ---
 
 [Tango](https://github.com/autolab/Tango) is a stand-alone, RESTful service that Autolab uses as the back-end for autograding. Tango receives grading jobs from Autolab's front-end, adds them to a job queue, assigns them to available containers for grading and shepherds the job through the process. In its early days, Tango was mostly used for jobs that ran in under 5 seconds. However, over the recent semesters, Autolab has grown to host classes like Distributed Systems, Machine Learning and Storage Systems--classes with significantly higher compute requirements. As we looked into how to handle larger loads, we were running into the problem of how to manage queued jobs and distribute them to different instances in our back-end. To this end, we decided to take the initial step for turning Tango into a distributed system by implementing a persistent memory using Redis and using the producer consumer model.
