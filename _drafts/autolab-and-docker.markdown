@@ -16,7 +16,7 @@ This post starts by shedding some light on the concepts Tango uses for autogradi
 
 # What it takes to Autograde
 
-A guarantee that Tango must provide is that the environment in which a job runs must remain homogeneous between jobs. Hence, Tango executes these jobs on Virtual Machines that are booted with user-specified images. In order to run jobs on a particular platform such as Amazon EC2, OpenStack or even RackSpace, the VMM interface must be implemented for that platform. The VMM interface is as follows:
+A guarantee that Tango must provide is that the environment in which a job runs must remain homogeneous between jobs. Hence, Tango executes these jobs on Virtual Machines that are booted with user-specified images. In order to run jobs on a particular platform such as Amazon EC2, OpenStack or even RackSpace, the VMM interface must be implemented for that platform. The [VMM interface][gh-sample-code] is as follows:
 
 * `initializeVM` - Initializes a VM for that platform.
 * `waitVM` - Wait for a VM to be accessible
@@ -53,3 +53,4 @@ Integrating Docker with Autolab has paved an exciting future for Autolab and the
 [docker-img]: https://docs.docker.com/userguide/dockerimages/
 [gh-docker]: https://github.com/autolab/Tango/releases/tag/v1.1.0
 [gh-docker-wiki]: https://github.com/autolab/Tango/wiki/Tango-with-Docker
+[gh-sample-code]: https://github.com/autolab/Tango/blob/master/vmms/localDocker.py
