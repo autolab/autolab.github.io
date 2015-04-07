@@ -50,7 +50,11 @@ img {
     vertical-align: middle;
 }
 
-
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 20px 0 30px 0;
+}
 
 /**
  * Figures
@@ -97,10 +101,6 @@ a {
     color: $brand-color;
     text-decoration: none;
 
-    &:visited {
-        color: darken($brand-color, 15%);
-    }
-
     &:hover {
         color: $text-color;
         text-decoration: underline;
@@ -133,7 +133,6 @@ blockquote {
 pre,
 code {
     font-size: 15px;
-    border: 1px solid $grey-color-light;
     border-radius: 3px;
 }
 
