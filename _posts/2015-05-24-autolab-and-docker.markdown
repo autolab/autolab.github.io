@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Autolab and Docker"
+date: 2015-05-24T22:40:07-07:00
 author: Mihir Pandya
 
 tags: [autograding, docker, tango]
