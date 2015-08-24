@@ -7,7 +7,7 @@ comments: true
 tags: [autograding, docker, tango]
 ---
 
-![]({{site.baseurl}}/assets/docker.svg)
+![]({{site.baseurl}}/assets/docker-autolab.svg)
 
 Autolab started in 2010 and had a very humble beginning. It was used for only one class with ~300 students and simply ran on one laptop! Following that, its merits were realized by other courses at Carnegie Mellon resulting in nothing short of a *success catastrophe*: ~3000 students use it every semester, 77 courses have used Autolab as of Fall 2014 and autograding jobs are run on five Dell R410 machines with 2x Intel E5520 CPUS and 8 Nehalem cores.
 
