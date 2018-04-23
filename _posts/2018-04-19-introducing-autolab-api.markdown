@@ -1,17 +1,19 @@
 ---
 layout: post
-title: "Autolab API: Opening Up Autolab"
+title: "Introducing Autolab API"
 date: 2018-04-19T14:00:00-04:00
 author: 'Billy Zhu'
 tags: ['release','api']
 comments: true
 ---
 
-It's almost midnight and you're working over ssh on that programming assignment that's about to hit its deadline. You hit compile and run your local test cases. Everything passes, phew, but unfortunately you can't stop there. You still need to scp the handin file back to your local computer and upload the tarball onto Autolab before midnight (aka 11:59PM).
+It's almost midnight and you're working over ssh on that programming assignment that's about to hit its deadline. You hit compile and run your local test cases. Everything passes, phew, but unfortunately you can't stop there. You need to scp the handin file back to your local machine, fire up the browser, and upload the tarball onto Autolab before midnight (aka 11:59PM).
 
 ---
 
-One of the core goals of Autolab is to make teaching easier, and user experience is central to this goal. Scenarios like the one above is proof that the current web interface isn't always convenient. The visual overhaul we introduced with Autolab 2.0 last year was one step on our journey towards a better user experience. Today, we're excited to invite everyone to join us on the next step of this journey with the release of the Autolab API, a HTTP interface that allows anyone to develop clients that interact with Autolab programatically. With this API, we're opening up many common features of Autolab beyond our traditional web interface. Developers will be able to create apps and services that integrate with Autolab to provide more versatile experiences for students and instructors.
+One of the core goals of Autolab is to make teaching easier, and user experience is central to achieving this goal. Scenarios like the one above is proof that the current web interface isn't always convenient. The visual overhaul we introduced with Autolab 2.0 last year was one step on our journey towards a better user experience. Today, we're excited to announce the next step of this journey with the release of the Autolab API, a HTTP interface that allows anyone to develop clients that interact with Autolab programatically.
+
+With this API, we're freeing many common features of Autolab from our traditional web interface. Developers will be able to create apps and services that integrate with Autolab to provide more versatile experiences for students and instructors. We also expect course instructors and TAs to start integrating this into some of their more complicated assignment infrastructure.
 
 In this post, I'll walk through how the API works for users of Autolab, and then go through autolab-cli, our first-party command line client. For interested developers, we also recommend checking out our full [API documentation][api-docs].
 
@@ -23,18 +25,18 @@ In this post, I'll walk through how the API works for users of Autolab, and then
 
 # What should I know as a user?
 
-The web interface that has served us well for many years is no longer the only way to use Autolab. By creating this API, we're inviting the community to join us in making Autolab more versatile and convenient: Whether it be with a mobile app, a command line tool, a browser extension, or something we've never even thought of.
+The web interface that has served us well for many years is no longer the only way to use Autolab. With this API, developers will be able to help make Autolab more versatile and convenient: Whether it be with a mobile app, a command line tool, a browser extension, or something we've never even thought of.
 
-What this means for users is that you can now use third-party programs to access Autolab to view assignments, download handouts, and even submit your solutions. For now, all developers will be manually vetted by our team to ensure quality of the clients. However, it is still important that users understand how clients interact with the system.
+What this means for users is that you can now use third-party programs to access Autolab to view assignments, download handouts, and even submit your solutions. Rest assured that all developers and their clients will be manually vetted by our team to ensure quality and safety. However, it is still important that users understand how clients interact with your account.
 
 ## Granting access
 
 As a user of Autolab, when you want to use a client for the first time, you need to grant access to the client so that it can interact with Autolab for you.
 
-- For clients that have access to a web browser (e.g. mobile apps, web apps), they will **redirect** you directly to the Grant Permissions page on Autolab.
-- For clients that _don't_ have access to a web browser (e.g. command line programs), the client will present to the user a **6-digit code** (case sensitive) that should be entered on the Autolab website.
+- __Easy Activation__: Clients that have access to a web browser (e.g. mobile apps, web apps) will __redirect__ the user directly to the Grant Permissions page on Autolab.
+- __Manual Activation__: Clients that _don't_ have access to a web browser (e.g. command line programs) will present to the user a __6-digit code__ (case sensitive) that should be entered on the Autolab website.
 
-_Note_: Third-party clients never ask for your username or password on Autolab. Never enter them anywhere else except on the Autolab website (always check the page url before entering your credentials).
+_Note_: Third-party clients never ask for your Autolab username or password. Never enter them anywhere else except on the Autolab website (always check the page url before entering your credentials).
 
 ![API Manual Activation Page]({{ site-url }}/assets/api/api-activate.png)
 _Manual activation page_
@@ -146,8 +148,7 @@ This will reveal other flags you may be able to use with each command. For examp
 ---
 
 This is our initial release of both the api and the cli, and we'd love to hear feedback from you! Feel free to email us if you have any questions or comments.  
-Have an idea for a client? We'd be interested in discussing with you and providing support. We can't wait to see what kinds of new experiences awaits us in the future!
+Have an idea for a client? We'd be interested in discussing with you and providing support. We can't wait to see what new experiences await us in the future!
 
 
 [api-docs]: https://autolab.github.io/docs/api-overview
-[cli-repo]: https://github.com/autolab/autolab-cli
