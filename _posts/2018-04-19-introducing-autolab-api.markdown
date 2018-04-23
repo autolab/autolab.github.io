@@ -11,7 +11,7 @@ It's almost midnight and you're working over ssh on that programming assignment 
 
 ---
 
-One of the core goals of Autolab is to make teaching easier, and user experience is central to achieving this goal. Scenarios like the one above is proof that the current web interface isn't always convenient. The visual overhaul we introduced with Autolab 2.0 last year was one step on our journey towards a better user experience. Today, we're excited to announce the next step of this journey with the release of the Autolab API, a HTTP interface that allows anyone to develop clients that interact with Autolab programatically.
+One of the core goals of Autolab is to make teaching easier, and user experience is central to achieving this goal. Scenarios like the one above is proof that the current web interface isn't always convenient. The visual overhaul we introduced with Autolab 2.0 last year was one step on our journey towards a better user experience. Today, we're excited to announce the next step of this journey with the release of the Autolab API, a HTTP interface that allows programmatic interaction with Autolab.
 
 With this API, we're freeing many common features of Autolab from our traditional web interface. Developers will be able to create apps and services that integrate with Autolab to provide more versatile experiences for students and instructors. We also expect course instructors and TAs to start integrating this into some of their more complicated assignment infrastructure.
 
